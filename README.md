@@ -51,13 +51,12 @@ OPENAI_API_KEY="your-openai-api-key"
 PDF_FILE_PATH="./doc_data/technical_manual.pdf"
 CHROMA_DB_PATH="./doc_data/chroma_db"
 EVALUATION_DB_PATH="./evaluation_dataset/questions_answers.csv"
-BM25_SAVE_PATH="./doc_data/bm25_documents.pkl"
+BM25_SAVE_PATH="./doc_data/bm25_documents.txt"
 
 # MONGODB CONFIG
 MONGODB_URL="mongodb://localhost:27017/"
 MONGODB_NAME="test-db"
 MONGODB_COLLECTION_NAME="foxbase-collection-6"
-MONGODB_LOCAL_PATH="./doc_data/test-db.foxbase-collection-6.json"
 
 BACKEND_URL = "http://foxbase_backend:8000/chat"
 

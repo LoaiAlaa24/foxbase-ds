@@ -18,7 +18,6 @@ COLLECTION_NAME = os.getenv("COLLECTION_NAME")
 MONGODB_URL = os.getenv("MONGODB_URL")
 MONGODB_NAME = os.getenv("MONGODB_NAME")
 MONGODB_COLLECTION_NAME = os.getenv("MONGODB_COLLECTION_NAME")
-MONGODB_LOCAL_PATH = os.getenv("MONGODB_LOCAL_PATH")
 
 client = MongoClient(MONGODB_URL)  # Update if using a different host
 db = client[MONGODB_NAME]  # Replace with your database name
@@ -57,7 +56,7 @@ class RetrievalInference:
     
         loaded_list = []
         
-        with open("./doc_data/bm25_text.txt", "r") as file:
+        with open(BM25_SAVE_PATH, "r") as file:
             loaded_list = file.read().splitlines()
             
         bm25_docs = [Document(page_content= text) for text in loaded_list]

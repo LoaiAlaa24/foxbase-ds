@@ -13,7 +13,6 @@ HUGGING_FACE_API_KEY = os.getenv("HUGGING_FACE_API_KEY")
 
 PDF_PATH = os.getenv("PDF_FILE_PATH")
 CHROMA_DB_PATH = os.getenv("CHROMA_DB_PATH")
-BM25_SAVE_PATH = os.getenv("BM25_SAVE_PATH")
 COLLECTION_NAME = os.getenv("COLLECTION_NAME")
 
 MONGODB_URL = os.getenv("MONGODB_URL")
@@ -62,7 +61,6 @@ class RetrievalCreatorPipeline:
         self._add_text_summaries_to_retriever()
         self._add_table_summaries_to_retriever()
         self._initialize_bm25_retriever()
-        self._save_bm25_documents()  # Save BM25 index to disk
     
     def _add_text_summaries_to_retriever(self):
 
@@ -104,11 +102,4 @@ class RetrievalCreatorPipeline:
         ]
         
         self.bm25_retriever = BM25Retriever.from_documents(self.bm25_documents)
-    
-    def _save_bm25_documents(self):
-        """Persist BM25 documents for later use"""
-        
-        with open(BM25_SAVE_PATH, "r") as file:
-            loaded_list = file.read().splitlines()
-            
             
