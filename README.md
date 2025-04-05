@@ -88,6 +88,16 @@ This hybrid retrieval strategy ensures both semantic and keyword-based search ef
 
 ![Logo](assets/overview.png)
 
+## Document Processing Pipeline 
+
+The PDF gets passed to Unstructured library to extract Text and Table Elements, then creating a summarization using
+LLM, and embedding it to the Chroma DB Vector Store. While keeping the raw data in the MongoDB Doc Store. The
+MultiVectorRetriever uses the docstore and vectorstore for retrieval. Moreover, the BM25 Retriever (keyword
+matching) gets initialized with the documents from the docstore. And passing both to the EnsembleRetriever for the
+hybrid search
+
+![Logo](assets/doc_proc_overview.png)
+
 ## System Components Overview
 
 This Retrieval-Augmented Generation (RAG) pipeline is designed for processing Technical Manual PDFs with high precision, extracting both structured and unstructured content, and enabling hybrid retrieval (semantic + lexical). The pipeline leverages:
