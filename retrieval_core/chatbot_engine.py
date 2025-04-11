@@ -61,6 +61,7 @@ class ChatBotEngine:
         Always reply in German
         Explain in paragraph the answer and the values the table provided in the context.
         Reference the context used to answer between double quotations.
+        Reply in 200 characters maximum.
         
         If the Question is not related to the content, reply saying that you can not answer this question.
         
