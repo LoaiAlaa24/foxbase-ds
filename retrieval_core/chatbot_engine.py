@@ -80,7 +80,7 @@ class ChatBotEngine:
                 "question": RunnablePassthrough(),
             }
             | RunnableLambda(self._build_prompt)
-            | ChatOpenAI(model="gpt-4o-mini")
+            | self.model
             | StrOutputParser()
         )
 
